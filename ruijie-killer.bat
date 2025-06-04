@@ -1,37 +1,36 @@
 @echo off
-mshta vbscript:msgbox("ÇëÓÒ¼üÒÔ¡¾¹ÜÀíÔ±Éí·ÝÔËÐÐ¡¿´Ë½Å±¾£¬·ñÔòÈ¨ÏÞ²»×ã£¡ÓÉ»Ã½¥¾³HuanjianjingÖÆ×÷£¬¿ÉÉ±ËÀÈñ½ÝÔ¶³Ì¹ÜÀíÈí¼þ£¬»¹ÄãÒ»¸ö×ÔÓÉµÄÐÅÏ¢¿Î¡£",64,"Èñ½ÝÉ±ÊÖ")(window.close)
+mshta vbscript:msgbox("è¯·å³é”®ä»¥ã€ç®¡ç†å‘˜èº«ä»½è¿è¡Œã€‘æ­¤è„šæœ¬ï¼Œå¦åˆ™æƒé™ä¸è¶³ï¼",64,"é”æ·æ€æ‰‹")(window.close)
 setlocal enabledelayedexpansion
 
-:: ----------- ÅäÖÃ²ÎÊý -----------
-set "Ô­ÎÄ¼þÂ·¾¶=C:\Program Files (x86)\RG-CloudManagerRemote\CMLauncher.exe"
-set "ÐÂÎÄ¼þÃû³Æ=CMLauncher-killed.exe"
+:: ----------- é…ç½®å‚æ•° -----------
+set "åŽŸæ–‡ä»¶è·¯å¾„=C:\Program Files (x86)\RG-CloudManagerRemote\CMLauncher.exe"
+set "æ–°æ–‡ä»¶åç§°=CMLauncher-killed.exe"
 :: ------------------------------
 
-:: ¼ì²éÊÇ·ñÒÔ¹ÜÀíÔ±Éí·ÝÔËÐÐ
+:: æ£€æŸ¥æ˜¯å¦ä»¥ç®¡ç†å‘˜èº«ä»½è¿è¡Œ
 net session >nul 2>&1
 if %errorLevel% neq 0 (
-    echo ÇëÓÒ¼üÒÔ¡¾¹ÜÀíÔ±Éí·ÝÔËÐÐ¡¿´Ë½Å±¾£¬·ñÔòÈ¨ÏÞ²»×ã£¡
+    echo è¯·å³é”®ä»¥ã€ç®¡ç†å‘˜èº«ä»½è¿è¡Œã€‘æ­¤è„šæœ¬ï¼Œå¦åˆ™æƒé™ä¸è¶³ï¼
     pause
     exit /b
 )
 
-:: ¼ì²éÔ­ÎÄ¼þÊÇ·ñ´æÔÚ
-if not exist "%Ô­ÎÄ¼þÂ·¾¶%" (
-    echo ´íÎó£ºÎÄ¼þ¼Ð "%Ô­ÎÄ¼þÂ·¾¶%" ²»´æÔÚ£¡
+:: æ£€æŸ¥åŽŸæ–‡ä»¶æ˜¯å¦å­˜åœ¨
+if not exist "%åŽŸæ–‡ä»¶è·¯å¾„%" (
+    echo é”™è¯¯ï¼šæ–‡ä»¶å¤¹ "%åŽŸæ–‡ä»¶è·¯å¾„%" ä¸å­˜åœ¨ï¼
     pause
     exit /b
 )
 
-:: Ö´ÐÐÖØÃüÃû²Ù×÷
-ren "%Ô­ÎÄ¼þÂ·¾¶%" "%ÐÂÎÄ¼þÃû³Æ%" 2>nul && (
-    echo ³É¹¦½«ÎÄ¼þÖØÃüÃûÎª "%ÐÂÎÄ¼þÃû³Æ%"
+:: æ‰§è¡Œé‡å‘½åæ“ä½œ
+ren "%åŽŸæ–‡ä»¶è·¯å¾„%" "%æ–°æ–‡ä»¶åç§°%" 2>nul && (
+    echo æˆåŠŸå°†æ–‡ä»¶é‡å‘½åä¸º "%æ–°æ–‡ä»¶åç§°%"
 ) || (
-    echo ÖØÃüÃûÊ§°Ü£¡¿ÉÄÜÔ­Òò£º
-    echo 1. Ä¿±êÃû³Æ "%ÐÂÎÄ¼þÃû³Æ%" ÒÑ´æÔÚ
-    echo 2. ÏµÍ³È¨ÏÞ²»×ã£¨ÇëÈ·ÈÏÒÔ¹ÜÀíÔ±Éí·ÝÔËÐÐ£©
-    echo 3. Ô­ÎÄ¼þÕýÔÚ±»ÆäËû³ÌÐòÕ¼ÓÃ
+    echo é‡å‘½åå¤±è´¥ï¼å¯èƒ½åŽŸå› ï¼š
+    echo 1. ç›®æ ‡åç§° "%æ–°æ–‡ä»¶åç§°%" å·²å­˜åœ¨
+    echo 2. ç³»ç»Ÿæƒé™ä¸è¶³ï¼ˆè¯·ç¡®è®¤ä»¥ç®¡ç†å‘˜èº«ä»½è¿è¡Œï¼‰
+    echo 3. åŽŸæ–‡ä»¶æ­£åœ¨è¢«å…¶ä»–ç¨‹åºå ç”¨
 )
 TASKKILL /F /IM CMLauncher.exe /T
-mshta vbscript:msgbox("³É¹¦£¡",64,"ÌáÊ¾")(window.close)
-
+mshta vbscript:msgbox("æˆåŠŸï¼",64,"æç¤º")(window.close)
 pause
